@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <style>
+.todo-content:hover .delbtn{
+/* background-color: aquamarine; */
+display: block;
+/* transition:ease-in ;
+transition-duration: 3s; */
+}
+.todo-content:hover .todo{
+  background-color: wheat;
+}
+.todo-content{
+  display: flex;
+}
+.delbtn{
+  padding: 10px 40px;
+  color: white;
+  background-color: red;
+}
+button{
+  border: none;
+}
+i{
+  /* background-color: red; */
+}
+.hide{
+  display: none;
+  /* width: 0px; */
+  /* transition: ease-in-out;
+  transition-delay: 1s */
+}
+  </style>
+</head>
+<body>
+
+  <center>
+<div class="d-flex w-50 justify-content-between mt-5">
+ <h1>To Do List</h1>
+  <button class="bg-white border border-0" style="font-size: 35px;"><label for="list">+</label></button>
+</div>
+<input type="text w-50" style="width: 50%; height: 50px; padding: 5px;" id="list" placeholder="Add New Todo">
+
+<div class="content w-50 mt-2">
+
+</div>
+  </center>
+  <script src="js/jquery-3.6.0.js"></script>
+  <script>
+$(document).ready(function(){
+
+      $("#list").keydown(function (e) {
+      if (e.keyCode == 13) {
+      let temp= $("#list").val()
+      console.log(temp);
+      $("#list").val("")
+
+      $(".content")
+      .append
+      ("<div class='todo-content mt-2'><button class='delbtn hide'><i class='bi bi-trash-fill'></i></button><div class='todo w-100' style='text-align:start; border:1px solid red; padding:10px 10px 10px 10px'>"+ temp +"</div></div>")
+      }
+      
+      $(".delbtn").click(function(){
+          $(this).hide();
+          $(this).next().hide();
+          // console.log("okk");
+        });
+    });
+
+
+
+    
+
+});
+ 
+
+  </script>
+</body>
+</html>
